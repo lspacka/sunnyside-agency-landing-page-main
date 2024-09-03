@@ -1,8 +1,26 @@
+:root {
+  --yellow:               hsl(51, 100%, 49%);
+  --soft-red:             hsl(7, 99%, 70%);
+  --light-moderate-cyan:  hsl(166.76, 44.16%, 69.8%);
+  --dark-moderate-cyan:   hsl(168, 34%, 41%);           /* footer logo and text*/
+  --dark-desat-cyan:      hsl(167, 40%, 24%);          /* graphic design */
+  --dark-blue:            hsl(198, 62%, 26%);         /* photography +*/
+  
+  --grayish-blue:         hsl(210, 4%, 67%);
+  --dark-grayish-blue:    hsl(232, 10%, 55%);
+  --darker-grayish-blue:  hsl(213, 9%, 39%);
+  --darker-desat-blue:    hsl(212, 27%, 19%);
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
   min-width: 0;
+}
+
+html {
+  font-size: 18px;
 }
 
 body {
@@ -21,11 +39,17 @@ main {
   width: 100%;
 }
 
+h1, h2, h3, a {
+  font-family: 'Fraunces';
+}
+
+p {
+  font-family: 'Barlow';
+}
+
 .heading {
   background-image: url(./images/desktop/image-header.jpg);
   background-size: cover;
-  /* background-repeat: no-repeat; */
-  /* height: fit-content; */
   aspect-ratio: 16 / 9;
 }
 
@@ -39,8 +63,13 @@ header {
   grid-template: 1fr 1fr 1fr / 1fr 1fr;
 }
 
+.feature {
+  height: fit-content;
+}
+
 .fi-1, .fi-2, .no-link-1, .no-link-2, .image {
   background-size: cover;
+  background-position: center;
   aspect-ratio: 1;
 }
 
@@ -60,13 +89,13 @@ header {
   background-image: url(./images/desktop/image-photography.jpg);
 }
 
-.testimonials {
+.testimonials, .images {
   display: flex;
 }
 
-.images {
+/* .images {
   display: flex;
-}
+} */
 
 .image {
   width: 100%;
@@ -91,8 +120,126 @@ header {
 footer {
   display: grid;
   place-content: center;
+  background-color: var(--light-moderate-cyan);
+  padding: 4rem 0 1.5rem 0;
+  color: var(--dark-desat-cyan);
+  /* font-weight: 700; */
+}
+
+.footer-logo {
+    inline-size: 50%;
+    place-self: center;
+    filter: 
+      brightness(0) 
+      saturate(100%) 
+      invert(28%) 
+      sepia(22%) 
+      saturate(778%) 
+      hue-rotate(117deg) 
+      brightness(97%) 
+      contrast(99%);
 }
 
 .footer-links, .socials {
   display: flex;
+}
+
+.footer-link, .social-link {
+  transition: .3s ease;
+}
+
+.footer-links {
+  /* font-size: 1.1rem; */
+  font-size: clamp(0.8rem, 5vw, 1.1rem);
+  padding: 2em 0 5em 0;
+  gap: 4.5em;
+  /* width: 100%; */
+}
+
+.socials {
+  gap: 2em;
+  place-self: center;
+}
+
+.social-link {
+  width: 25px;
+}
+
+.footer-link:hover,
+.social-link:hover {
+  cursor: pointer;
+  filter: 
+    brightness(0) 
+    saturate(100%) 
+    invert(94%) 
+    sepia(100%) 
+    saturate(2%) 
+    hue-rotate(165deg) 
+    brightness(106%) 
+    contrast(101%);
+}
+
+@media (max-width: 600px) {
+  .heading {
+    /* font-size: 1.3rem; */
+    background-image: url(./images/mobile/image-header.jpg);
+    aspect-ratio: 3 / 4;
+    /* background-position: center; */
+    /* height: fit-content; */
+  }
+  .fi-1 {
+    order: 1;
+  }
+  .feature-1 {
+    order: 2;
+  }
+  .fi-2 {
+    order: 3;
+  }
+  .feature-2 {
+    order: 4;
+  }
+  .no-link-1, .no-link-2 {
+    background-position: top;
+  }
+  .no-link-1 {
+    background-image: url(./images/mobile/image-graphic-design.jpg);
+    order: 5;
+  }
+  .no-link-2 {
+    background-image: url(./images/mobile/image-photography.jpg);
+    order: 6;
+  }
+  .features {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr);
+  }
+  .testimonials {
+    flex-direction: column;
+  }
+  .images {
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+  }
+  .image-1 {
+    background-image: url(./images/mobile/image-gallery-milkbottles.jpg);
+  }
+  .image-2 {
+    background-image: url(./images/mobile/image-gallery-orange.jpg);
+  }
+  .image-3 {
+    background-image: url(./images/mobile/image-gallery-cone.jpg);
+  }
+  .image-4 {
+    background-image: url(./images/mobile/image-gallery-sugar-cubes.jpg);
+  }
+  footer {
+    padding: 3em 1em 4em 1em;
+  }
+  .footer-links {
+    font-size: 0.8rem;
+  }
+  .social-link {
+    width: 20px;
+  }
 }
