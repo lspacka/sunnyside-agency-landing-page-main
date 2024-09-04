@@ -1,6 +1,8 @@
 /* 
   TODO:
     - link underline
+    - check letter spacing
+    - check paddings and spacing between titles and paragraphs
 */
 
 /* started out well, but then it descended into a patchy mess... */
@@ -9,10 +11,10 @@
   --light-yellow:         hsl(51, 100%, 89%);
   --yellow:               hsl(51, 100%, 49%);
   --soft-red:             hsl(7, 99%, 70%);
+  --light-blue:           hsl(200.42, 100%, 81.6%); 
   --light-moderate-cyan:  hsl(166.76, 44.16%, 69.8%);
   --dark-moderate-cyan:   hsl(168, 34%, 41%);             /* footer logo and text*/
-  --dark-desat-cyan:      hsl(167, 40%, 24%);
-  --light-blue:           hsl(200.42, 100%, 81.6%);            /* graphic design */
+  --dark-desat-cyan:      hsl(167, 40%, 24%);           /* graphic design */
   --dark-blue:            hsl(198, 62%, 26%);           /* photography +*/
   
   --grayish-blue:         hsl(210, 4%, 67%);
@@ -53,7 +55,8 @@ h1, h2, h3, h4, a, .name {
 }
 
 h2 {
-  font-size: 2rem;
+  /* font-size: 2rem; */
+  font-size: clamp(1.7rem, 5vw, 2rem);
   padding-right: 3rem;
   font-weight: 900;
   color: var(--darker-desat-blue);
@@ -107,7 +110,8 @@ button:hover {
 }
 
 .heading-title {
-  font-size: 2.9rem;
+  /* font-size: 2.9rem; */
+  font-size: clamp(1.7rem, 5vw, 2.9rem);
   letter-spacing: 9px;
   color: white;
   padding-bottom: 2.5rem;
@@ -148,6 +152,7 @@ button:hover {
 }
 
 .feature-p:not(.mini-p) {
+  font-size: clamp(0.88rem, 5vw, 1rem);
   padding-bottom: 2rem;
   color: var(--grayish-blue);
   font-weight: 600;
@@ -155,7 +160,9 @@ button:hover {
 
 .mini-title {
   /* padding-top: 4rem; */
-  font-size: 1.5rem;
+  font-weight: 900;
+  /* font-size: 1.5rem; */
+  font-size: clamp(1.3rem, 5vw, 1.5rem);
   color: var(--dark-desat-cyan);
 }
 
@@ -200,6 +207,7 @@ button:hover {
 .no-link-1, .no-link-2 {
   text-align: center;
   align-content: end;
+  /* height: fit-content; */
 }
 
 .no-link-1 {
@@ -347,7 +355,11 @@ footer {
     contrast(101%);
 }
 
-@media (max-width: 600px) {
+@media (max-width: 810px) {
+  h2 {
+    /* font-size: 1.7rem; */
+    padding: 0;
+  }
   .heading {
     /* font-size: 1.3rem; */
     background-image: url(./images/mobile/image-header.jpg);
@@ -355,6 +367,18 @@ footer {
     /* background-position: center; */
     /* height: fit-content; */
   }
+  header {
+    padding: 1.5rem 1rem 2rem 1rem;
+  }
+  .header-logo {
+    inline-size: 100%;
+  }
+  .header-links {
+    visibility: hidden;
+  }
+  /* .arrow {
+    inline-size: 10%;
+  } */
   .fi-1 {
     order: 1;
   }
@@ -369,6 +393,7 @@ footer {
   }
   .no-link-1, .no-link-2 {
     background-position: top;
+    padding: 0;
     /* text-align: center; */
   }
   .no-link-1 {
@@ -378,14 +403,27 @@ footer {
   .no-link-2 {
     background-image: url(./images/mobile/image-photography.jpg);
     order: 6;
+    place-content: end;
   }
   .features {
-    grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, 1fr);
+    /* grid-template-columns: 1fr;
+    grid-template-rows: repeat(6, 1fr); */
+    display: flex;
+    flex-direction: column;
   }
   .feature {
     text-align: center;
+    padding: 3rem 1rem 3rem 1rem;
+    height: fit-content;
+  }
+  .mini-p{
+    font-size: 0.7rem;
     padding: 0;
+  }
+  .no-link {
+    /* background-size: 100% 80%; */
+    /* padding: 0; */
+    aspect-ratio: 9 / 16;
   }
   .testimonials-container {
     padding: 3rem 1rem 4rem 1rem;
