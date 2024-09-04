@@ -1,10 +1,19 @@
+/* 
+  TODO:
+    - link underline
+*/
+
+/* started out well, but then it descended into a patchy mess... */
+
 :root {
+  --light-yellow:         hsl(51, 100%, 89%);
   --yellow:               hsl(51, 100%, 49%);
   --soft-red:             hsl(7, 99%, 70%);
   --light-moderate-cyan:  hsl(166.76, 44.16%, 69.8%);
-  --dark-moderate-cyan:   hsl(168, 34%, 41%);           /* footer logo and text*/
-  --dark-desat-cyan:      hsl(167, 40%, 24%);          /* graphic design */
-  --dark-blue:            hsl(198, 62%, 26%);         /* photography +*/
+  --dark-moderate-cyan:   hsl(168, 34%, 41%);             /* footer logo and text*/
+  --dark-desat-cyan:      hsl(167, 40%, 24%);
+  --light-blue:           hsl(200.42, 100%, 81.6%);            /* graphic design */
+  --dark-blue:            hsl(198, 62%, 26%);           /* photography +*/
   
   --grayish-blue:         hsl(210, 4%, 67%);
   --dark-grayish-blue:    hsl(232, 10%, 55%);
@@ -45,7 +54,9 @@ h1, h2, h3, h4, a, .name {
 
 h2 {
   font-size: 2rem;
-  padding-right: 6rem;
+  padding-right: 3rem;
+  font-weight: 900;
+  color: var(--darker-desat-blue);
 }
 
 p {
@@ -62,6 +73,44 @@ p {
 header {
   display: flex;
   justify-content: space-between;
+  padding: 2rem 2rem 6rem 2rem;
+}
+
+.header-links {
+  display: flex;
+  gap: 2.5rem;
+}
+
+.header-link {
+  font-size: 0.88rem;
+  font-family: 'Barlow';
+  text-decoration: none;
+  color: white;
+  align-self: center;
+}
+
+button {
+  height: 45px;
+  place-self: start;
+  border: 0;
+  width: 125px;
+  border-radius: 50px;
+  font-family: 'Fraunces';
+  font-weight: 900;
+  background-color: white;
+}
+
+button:hover {
+  background-color: var(--light-blue);
+  color: white;
+  cursor: pointer;
+}
+
+.heading-title {
+  font-size: 2.9rem;
+  letter-spacing: 9px;
+  color: white;
+  padding-bottom: 2.5rem;
 }
 
 .features {
@@ -72,7 +121,7 @@ header {
 .feature {
   /* height: fit-content; */
   /* place-content: center; */
-  padding: 11rem 4rem 4rem 6rem;
+  padding: 9rem 4rem 3.5rem 6rem;
   text-align: left;
 }
 
@@ -81,11 +130,49 @@ header {
 }
 
 .feature-p {
-  padding: 3rem 0 0 0;
+  padding: 2rem 0 0 0;
+}
+
+.link-1 {
+  width: fit-content;
+  border-bottom: 8px solid var(--light-yellow);
+  display: inline-block;
+  border-radius: 22px;
+}
+
+.feature-link {
+  color: var(--darker-desat-blue);
+  font-weight: 700;
+  font-size: 1.05rem;
+  text-decoration: none;
+}
+
+.feature-p:not(.mini-p) {
+  padding-bottom: 2rem;
+  color: var(--grayish-blue);
+  font-weight: 600;
+}
+
+.mini-title {
+  /* padding-top: 4rem; */
+  font-size: 1.5rem;
+  color: var(--dark-desat-cyan);
+}
+
+.mini-p {
+  /* font-size: 1rem; */
+  color: var(--dark-desat-cyan);
+  padding: 0 1.7rem 0 1.7rem;
+}
+
+.mini-title-2, .mini-p-2 {
+  color: var(--dark-blue);
 }
 
 .no-link > .feature-p {
+  /* color: var(--dark-desat-cyan); */
   padding-top: 2rem;
+  font-weight: 600;
 }
 
 /* .feature-title:not(.no-link) {
@@ -121,7 +208,7 @@ header {
 
 .no-link-2 {
   background-image: url(./images/desktop/image-photography.jpg);
-  padding-bottom: 5.7rem;
+  /* padding-bottom: 5.7rem; */
 }
 
 .testimonials, .images {
@@ -129,19 +216,26 @@ header {
 }
 
 .testimonials-container {
-  padding: 5rem 4rem 8rem 4rem;
-  border: 2px solid orange;
+  padding: 9rem 4rem 8rem 4rem;
+  /* border: 2px solid orange; */
 }
 
 .testimonials {
-  padding-top: 4rem;
+  padding-top: 5rem;
   gap: 2.5rem;
+}
+
+.testimonials-title {
+  color: var(--grayish-blue);
+  font-size: 1.1rem;
+  font-weight: 900;
+  letter-spacing: 6px;
 }
 
 .testimonial {
   font-size: 0.88rem;
   padding: 0 .5rem 0 .5rem;
-  border: 1px solid greenyellow;
+  /* border: 1px solid greenyellow; */
 }
 
 .avatar {
@@ -151,11 +245,21 @@ header {
 
 .blurb {
   padding: 3rem 0 4rem 0;
+  color: var(--darker-grayish-blue);
+  font-weight: 600;
 }
 
 .name {
+  font-size: 1rem;
   font-weight: 700;
   padding-bottom: 0.5rem;
+  color: var(--darker-desat-blue);
+}
+
+.occupation {
+  color: var(--grayish-blue);
+  font-size: 0.8rem;
+  font-weight: 600;
 }
 /* .images {
   display: flex;
@@ -281,6 +385,7 @@ footer {
   }
   .feature {
     text-align: center;
+    padding: 0;
   }
   .testimonials-container {
     padding: 3rem 1rem 4rem 1rem;
