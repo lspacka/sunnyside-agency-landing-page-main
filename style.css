@@ -3,6 +3,8 @@
     - link underline
     - check letter spacing
     - check paddings and spacing between titles and paragraphs
+    - fix top orange img on mobile
+    - finish header links on mobile
 */
 
 /* started out well, but then it descended into a patchy mess... */
@@ -14,8 +16,8 @@
   --light-blue:           hsl(200.42, 100%, 81.6%); 
   --light-moderate-cyan:  hsl(166.76, 44.16%, 69.8%);
   --dark-moderate-cyan:   hsl(168, 34%, 41%);             /* footer logo and text*/
-  --dark-desat-cyan:      hsl(167, 40%, 24%);           /* graphic design */
-  --dark-blue:            hsl(198, 62%, 26%);           /* photography +*/
+  --dark-desat-cyan:      hsl(167, 40%, 24%);             /* graphic design */
+  --dark-blue:            hsl(198, 62%, 26%);             /* photography +*/
   
   --grayish-blue:         hsl(210, 4%, 67%);
   --dark-grayish-blue:    hsl(232, 10%, 55%);
@@ -37,13 +39,11 @@ html {
 body {
   min-height: 100vh;
   display: grid;
-  /* place-content: center; */
   text-align: center;
 }
 
 img {
   align-self: center;
-  /* max-inline-size: 100%; */
 }
 
 main {
@@ -55,7 +55,6 @@ h1, h2, h3, h4, a, .name {
 }
 
 h2 {
-  /* font-size: 2rem; */
   font-size: clamp(1.7rem, 5vw, 2rem);
   padding-right: 3rem;
   font-weight: 900;
@@ -74,14 +73,17 @@ p {
 }
 
 header {
-  display: flex;
-  justify-content: space-between;
-  padding: 2rem 2rem 6rem 2rem;
+  /* display: flex;
+  justify-content: space-between; */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  padding: 2rem 2rem 6rem 2rem; /* 2rem 2rem 6rem || 2rem 6rem */
 }
 
 .header-links {
   display: flex;
   gap: 2.5rem;
+  margin-left: auto;
 }
 
 .header-link {
@@ -110,12 +112,31 @@ button:hover {
 }
 
 .heading-title {
-  /* font-size: 2.9rem; */
   font-size: clamp(1.7rem, 5vw, 2.9rem);
   letter-spacing: 9px;
   color: white;
   padding-bottom: 2.5rem;
 }
+
+.arrow {
+  visibility: visible;
+}
+
+.arrow.visible {
+  visibility: hidden;
+}
+
+.header-flair {
+  display: flex;
+}
+
+.burger-container {
+  visibility: hidden;
+  align-self: center;
+  margin-left: auto;
+}
+
+/* .burger-img */
 
 .features {
   display: grid;
@@ -123,8 +144,6 @@ button:hover {
 }
 
 .feature {
-  /* height: fit-content; */
-  /* place-content: center; */
   padding: 9rem 4rem 3.5rem 6rem;
   text-align: left;
 }
@@ -159,15 +178,12 @@ button:hover {
 }
 
 .mini-title {
-  /* padding-top: 4rem; */
   font-weight: 900;
-  /* font-size: 1.5rem; */
   font-size: clamp(1.3rem, 5vw, 1.5rem);
   color: var(--dark-desat-cyan);
 }
 
 .mini-p {
-  /* font-size: 1rem; */
   color: var(--dark-desat-cyan);
   padding: 0 1.7rem 0 1.7rem;
 }
@@ -177,18 +193,9 @@ button:hover {
 }
 
 .no-link > .feature-p {
-  /* color: var(--dark-desat-cyan); */
   padding-top: 2rem;
   font-weight: 600;
 }
-
-/* .feature-title:not(.no-link) {
-  font-size: 1.1rem;
-} */
-
-/* .feature-text {
-  place-self: center;
-} */
 
 .fi-1, .fi-2, .no-link-1, .no-link-2, .image {
   background-size: cover;
@@ -207,7 +214,6 @@ button:hover {
 .no-link-1, .no-link-2 {
   text-align: center;
   align-content: end;
-  /* height: fit-content; */
 }
 
 .no-link-1 {
@@ -216,7 +222,6 @@ button:hover {
 
 .no-link-2 {
   background-image: url(./images/desktop/image-photography.jpg);
-  /* padding-bottom: 5.7rem; */
 }
 
 .testimonials, .images {
@@ -225,7 +230,6 @@ button:hover {
 
 .testimonials-container {
   padding: 9rem 4rem 8rem 4rem;
-  /* border: 2px solid orange; */
 }
 
 .testimonials {
@@ -243,7 +247,6 @@ button:hover {
 .testimonial {
   font-size: 0.88rem;
   padding: 0 .5rem 0 .5rem;
-  /* border: 1px solid greenyellow; */
 }
 
 .avatar {
@@ -269,9 +272,6 @@ button:hover {
   font-size: 0.8rem;
   font-weight: 600;
 }
-/* .images {
-  display: flex;
-} */
 
 .image {
   width: 100%;
@@ -299,7 +299,6 @@ footer {
   background-color: var(--light-moderate-cyan);
   padding: 4rem 0 1.5rem 0;
   color: var(--dark-desat-cyan);
-  /* font-weight: 700; */
 }
 
 .footer-logo {
@@ -325,11 +324,9 @@ footer {
 }
 
 .footer-links {
-  /* font-size: 1.1rem; */
   font-size: clamp(0.8rem, 5vw, 1.1rem);
   padding: 2em 0 5em 0;
   gap: 4.5em;
-  /* width: 100%; */
 }
 
 .socials {
@@ -355,30 +352,48 @@ footer {
     contrast(101%);
 }
 
+
 @media (max-width: 810px) {
   h2 {
-    /* font-size: 1.7rem; */
     padding: 0;
   }
   .heading {
-    /* font-size: 1.3rem; */
     background-image: url(./images/mobile/image-header.jpg);
     aspect-ratio: 3 / 4;
-    /* background-position: center; */
-    /* height: fit-content; */
   }
   header {
+    display: flex;
     padding: 1.5rem 1rem 2rem 1rem;
+    flex-direction: column;
   }
   .header-logo {
-    inline-size: 100%;
+    inline-size: 40%;
   }
   .header-links {
-    visibility: hidden;
+    display: none;
+    transform: translateY(7rem);
+    flex-direction: column;
+    margin: 0;
+    background-color: white;
+    padding: 2em;
   }
-  /* .arrow {
-    inline-size: 10%;
-  } */
+  .burger-container {
+    visibility: visible;
+  }
+  .burger-container:hover {
+    cursor: pointer;
+  }
+  .header-links.active {
+    display: flex;
+  }
+  .header-link {
+    color: var(--dark-grayish-blue);
+    font-weight: bold;
+  }
+  button {
+    place-self: center;
+    background-color: var(--yellow);
+  }
   .fi-1 {
     order: 1;
   }
@@ -394,7 +409,6 @@ footer {
   .no-link-1, .no-link-2 {
     background-position: top;
     padding: 0;
-    /* text-align: center; */
   }
   .no-link-1 {
     background-image: url(./images/mobile/image-graphic-design.jpg);
@@ -406,8 +420,6 @@ footer {
     place-content: end;
   }
   .features {
-    /* grid-template-columns: 1fr;
-    grid-template-rows: repeat(6, 1fr); */
     display: flex;
     flex-direction: column;
   }
@@ -421,8 +433,6 @@ footer {
     padding: 0;
   }
   .no-link {
-    /* background-size: 100% 80%; */
-    /* padding: 0; */
     aspect-ratio: 9 / 16;
   }
   .testimonials-container {
