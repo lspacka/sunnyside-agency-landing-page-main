@@ -1,9 +1,9 @@
 /* 
   TODO:
     - link underline
-    - check letter spacing
-    - check paddings and spacing between titles and paragraphs
-    - fix top orange img on mobile
+    + check letter spacing
+    + check paddings and spacing between titles and paragraphs
+    + fix top orange img on mobile
     - finish header links on mobile
 */
 
@@ -82,7 +82,8 @@ header {
 
 .header-links {
   display: flex;
-  gap: 2.5rem;
+  /* gap: 2.5rem; */
+  gap: clamp(1.7rem, 5vw, 2.5rem);
   margin-left: auto;
 }
 
@@ -112,8 +113,8 @@ button:hover {
 }
 
 .heading-title {
-  font-size: clamp(1.7rem, 5vw, 2.9rem);
-  letter-spacing: 9px;
+  font-size: clamp(1.9rem, 5vw, 2.9rem);
+  letter-spacing: clamp(5px, 2vw, 9px);
   color: white;
   padding-bottom: 2.5rem;
 }
@@ -122,8 +123,14 @@ button:hover {
   visibility: visible;
 }
 
+/* .heading-title.visible,
 .arrow.visible {
   visibility: hidden;
+} */
+
+.heading-text {
+  display: flex;
+  flex-direction: column;
 }
 
 .header-flair {
@@ -239,7 +246,8 @@ button:hover {
 
 .testimonials-title {
   color: var(--grayish-blue);
-  font-size: 1.1rem;
+  /* font-size: 1.1rem; */
+  font-size: clamp(0.73rem, 3vw, 1.1rem);
   font-weight: 900;
   letter-spacing: 6px;
 }
@@ -263,7 +271,7 @@ button:hover {
 .name {
   font-size: 1rem;
   font-weight: 700;
-  padding-bottom: 0.5rem;
+  padding-bottom: 0.3rem;
   color: var(--darker-desat-blue);
 }
 
@@ -326,7 +334,8 @@ footer {
 .footer-links {
   font-size: clamp(0.8rem, 5vw, 1.1rem);
   padding: 2em 0 5em 0;
-  gap: 4.5em;
+  /* gap: 4.5em; */
+  gap: clamp(3em, 4vw, 5em);
 }
 
 .socials {
@@ -360,6 +369,7 @@ footer {
   .heading {
     background-image: url(./images/mobile/image-header.jpg);
     aspect-ratio: 3 / 4;
+    /* inline-size: 100%; */
   }
   header {
     display: flex;
@@ -369,13 +379,24 @@ footer {
   .header-logo {
     inline-size: 40%;
   }
+  .heading-text {
+    margin-top: 2rem;
+  }
+  .arrow {
+    inline-size: 10%;
+  }
   .header-links {
     display: none;
-    transform: translateY(7rem);
+    transform: translateY(3rem);
     flex-direction: column;
     margin: 0;
     background-color: white;
-    padding: 2em;
+    padding: 1.5em;
+    /* gap: 1.7rem; */
+    /* width: 90%; */
+  }
+  .heading-text.visible {
+    display: none;
   }
   .burger-container {
     visibility: visible;
@@ -384,6 +405,7 @@ footer {
     cursor: pointer;
   }
   .header-links.active {
+    /* visibility: visible; */
     display: flex;
   }
   .header-link {
