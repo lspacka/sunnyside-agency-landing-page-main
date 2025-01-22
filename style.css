@@ -4,7 +4,7 @@
     + check letter spacing
     + check paddings and spacing between titles and paragraphs
     + fix top orange img on mobile
-    - finish header links on mobile
+    - finish burger menu
 */
 
 /* started out well, but then it descended into a patchy mess... */
@@ -12,6 +12,7 @@
 :root {
   --light-yellow:         hsl(51, 100%, 89%);
   --yellow:               hsl(51, 100%, 49%);
+  --softer-red:           hsl(11, 91%, 91%);
   --soft-red:             hsl(7, 99%, 70%);
   --light-blue:           hsl(200.42, 100%, 81.6%); 
   --light-moderate-cyan:  hsl(166.76, 44.16%, 69.8%);
@@ -73,16 +74,13 @@ p {
 }
 
 header {
-  /* display: flex;
-  justify-content: space-between; */
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 2rem 2rem 6rem 2rem; /* 2rem 2rem 6rem || 2rem 6rem */
+  padding: 2rem 2rem 6rem 2rem; 
 }
 
 .header-links {
   display: flex;
-  /* gap: 2.5rem; */
   gap: clamp(1.7rem, 5vw, 2.5rem);
   margin-left: auto;
 }
@@ -123,11 +121,6 @@ button:hover {
   visibility: visible;
 }
 
-/* .heading-title.visible,
-.arrow.visible {
-  visibility: hidden;
-} */
-
 .heading-text {
   display: flex;
   flex-direction: column;
@@ -142,8 +135,6 @@ button:hover {
   align-self: center;
   margin-left: auto;
 }
-
-/* .burger-img */
 
 .features {
   display: grid;
@@ -163,18 +154,45 @@ button:hover {
   padding: 2rem 0 0 0;
 }
 
-.link-1 {
+.link-1, .link-2 {
   width: fit-content;
-  border-bottom: 8px solid var(--light-yellow);
+  /* height: fit-content; */
+  /* border-bottom: 8px solid var(--light-yellow); */
   display: inline-block;
   border-radius: 22px;
+  transform: translate(0.4rem, 0.5rem);
+  /* z-index: 0; */
+}
+
+.link1-underline,
+.link2-underline {
+  width: 30%;
+  height: 10px;
+  border-radius: 50px;
+}
+
+.link1-underline {
+  background-color: var(--light-yellow);
+}
+
+.link2-underline {
+  background-color: var(--softer-red)
+}
+
+.link-1:hover ~ .link1-underline {
+  background-color: var(--yellow);
+}
+
+.link-2:hover ~ .link2-underline {
+  background-color: var(--soft-red);
 }
 
 .feature-link {
   color: var(--darker-desat-blue);
   font-weight: 700;
-  font-size: 1.05rem;
+  font-size: 0.97rem;
   text-decoration: none;
+  /* z-index: 1; */
 }
 
 .feature-p:not(.mini-p) {
@@ -246,7 +264,6 @@ button:hover {
 
 .testimonials-title {
   color: var(--grayish-blue);
-  /* font-size: 1.1rem; */
   font-size: clamp(0.73rem, 3vw, 1.1rem);
   font-weight: 900;
   letter-spacing: 6px;
@@ -334,7 +351,6 @@ footer {
 .footer-links {
   font-size: clamp(0.8rem, 5vw, 1.1rem);
   padding: 2em 0 5em 0;
-  /* gap: 4.5em; */
   gap: clamp(3em, 4vw, 5em);
 }
 
@@ -369,7 +385,6 @@ footer {
   .heading {
     background-image: url(./images/mobile/image-header.jpg);
     aspect-ratio: 3 / 4;
-    /* inline-size: 100%; */
   }
   header {
     display: flex;
@@ -392,9 +407,16 @@ footer {
     margin: 0;
     background-color: white;
     padding: 1.5em;
-    /* gap: 1.7rem; */
-    /* width: 90%; */
   }
+  /* .header-links.active:before {
+    border-bottom: 10px solid transparent;
+    border-left: 10px solid transparent;
+    border-right: 10px solid white;
+    border-top: 10px solid white;
+    content: "";
+    right: 10;
+    top: 10px;
+  } */
   .heading-text.visible {
     display: none;
   }
@@ -405,7 +427,6 @@ footer {
     cursor: pointer;
   }
   .header-links.active {
-    /* visibility: visible; */
     display: flex;
   }
   .header-link {
@@ -427,6 +448,18 @@ footer {
   }
   .feature-2 {
     order: 4;
+  }
+  .link1-underline,
+  .link2-underline {
+    width: 45%;
+    transform: translateX(67%);
+    position: relative;
+    z-index: 0;
+  }
+  .link-1, .link-2 {
+    transform: translate(0.4rem, 0.4rem);
+    position: relative;
+    z-index: 1;
   }
   .no-link-1, .no-link-2 {
     background-position: top;
