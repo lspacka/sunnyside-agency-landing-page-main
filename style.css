@@ -1,10 +1,10 @@
 /* 
   TODO:
-    - link underline
+    + link underline
     + check letter spacing
     + check paddings and spacing between titles and paragraphs
     + fix top orange img on mobile
-    - finish burger menu
+    + finish burger menu
 */
 
 /* started out well, but then it descended into a patchy mess... */
@@ -408,15 +408,16 @@ footer {
     background-color: white;
     padding: 1.5em;
   }
-  /* .header-links.active:before {
-    border-bottom: 10px solid transparent;
-    border-left: 10px solid transparent;
-    border-right: 10px solid white;
-    border-top: 10px solid white;
+  .header-links.active::before {
     content: "";
-    right: 10;
-    top: 10px;
-  } */
+    position: absolute;
+    top: -25px;
+    right: 0;
+    width: 0;
+    height: 0;
+    border-left: 35px solid transparent;
+    border-bottom: 40px solid white;
+  }
   .heading-text.visible {
     display: none;
   }
