@@ -164,7 +164,7 @@ button:hover {
 
 .link1-underline,
 .link2-underline {
-  width: 30%;
+  width: 30%;  /* 26.6 */
   height: 10px;
   border-radius: 50px;
   transition: .3s ease-in-out;
