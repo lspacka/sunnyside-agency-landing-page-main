@@ -7,10 +7,10 @@ Users should be able to:
 - View the optimal layout for the site depending on their device's screen size
 - See hover states for all interactive elements on the page
 
-![](./screenshot.jpg)
+![](./screenshot.png)
 
-- [Solution](https://your-solution-url.com)
-- [Live Site](https://your-live-site-url.com)
+- [Solution](https://www.frontendmentor.io/solutions/agency-landing-page---html-css-js-xLHzKW2IA3)
+- [Live Site](https://lspacka.github.io/FEM-sunnyside-agency-landing-page/)
 
 ### Built with
 

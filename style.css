@@ -102,6 +102,7 @@ button {
   font-family: 'Fraunces';
   font-weight: 900;
   background-color: white;
+  transition: .2s ease-in-out;
 }
 
 button:hover {
@@ -156,12 +157,9 @@ button:hover {
 
 .link-1, .link-2 {
   width: fit-content;
-  /* height: fit-content; */
-  /* border-bottom: 8px solid var(--light-yellow); */
   display: inline-block;
   border-radius: 22px;
   transform: translate(0.4rem, 0.5rem);
-  /* z-index: 0; */
 }
 
 .link1-underline,
@@ -169,6 +167,7 @@ button:hover {
   width: 30%;
   height: 10px;
   border-radius: 50px;
+  transition: .3s ease-in-out;
 }
 
 .link1-underline {
@@ -345,7 +344,7 @@ footer {
 }
 
 .footer-link, .social-link {
-  transition: .3s ease;
+  transition: .4s ease-in-out;
 }
 
 .footer-links {
